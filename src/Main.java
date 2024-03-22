@@ -10,6 +10,7 @@ public class Main {
                               new Student("Сапега", "Л.Ю.", 45, new int[]{9, 8, 7, 10, 7}),
                               new Student("Полоцкая", "Е.Ю.", 22, new int[]{9, 6, 5, 6, 7}),
                               new Student("Шагал", "М.Ю.", 11, new int[]{9, 8, 5, 9, 7})};
-        System.out.println(students);
+
+        Student.studentExellent(students);
     }
 }

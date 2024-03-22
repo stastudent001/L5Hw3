@@ -2,10 +2,10 @@
   элементов).Создайте массив из 10 элементов такого типа. Добавьте возможность вывода фамилий и номеров групп студентов,
   имеющие оценки равные только 9 или 10.*/
 public class Student {//Создайте класс с именем Student,
-    private static String lastName;//фамилия и инициалы, номер группы,
-    private static String initials;
-    private static int groupNumber;
-    private int[] achievement;//успеваемость (массив из 5 элементов)
+    private String lastName;//фамилия и инициалы, номер группы,
+    private String initials;
+    private int groupNumber;
+    private int[] achievement = new int[5];//успеваемость (массив из 5 элементов)
 
     public Student(String lastName, String initials, int groupNumber, int[] achievement) {
     this.lastName = lastName;
@@ -46,11 +46,22 @@ public class Student {//Создайте класс с именем Student,
         this.achievement = achievement;
     }
 
-    public boolean isStudentExellent(Student students) {
-        for (int i = 0; i < getAchievement().length; i++) {
-            if (getAchievement()[i] < 9)
-                return false;
+    public String toString() {
+        return lastName + ", " + groupNumber;
+    }
+
+    public static void studentExellent(Student[] students) {
+        for (Student student : students) {
+            boolean isStudentExellent = true;
+            for (int mark : student.getAchievement()) {
+                if (mark < 9) {
+                    isStudentExellent = false;
+                    break;
+                }
+            }
+            if (isStudentExellent == true) {
+            System.out.println(student.toString());
+            }
         }
-        return true;
     }
 }
